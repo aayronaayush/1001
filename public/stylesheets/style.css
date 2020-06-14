@@ -1,0 +1,29 @@
+.part
+{
+    padding-top: 10px;
+}
+
+body
+{
+    background-image: url(https://www.myfreetextures.com/wp-content/uploads/2011/06/another-rough-old-and-worn-parchment-paper-900x741.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 20px;
+    font-size: 20px;
+}
+
+#buttonSpace
+{
+    padding: 20px;
+}
+
+#home
+{
+    text-align: center;
+    width: 700px;
+    height: 200px;
+    margin: auto;
+    margin-top: 40px;
+}

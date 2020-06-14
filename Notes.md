@@ -1,0 +1,1 @@
+Prince Faiz has a blinded eye, shaves of this head and his eyesbrow and heads for the city of baghdad where he is meet two other dervishes
