@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <title>The Story Of The First Dervish</title>
-</head>
-<body>
+<%- include("./partials/header") %> 
 
     <div class="ui container">
         <% for(let i=0;i<21;i++){ %> 
@@ -16,9 +7,4 @@
             </div>
         <% } %> 
     </div>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-    <script src="/scripts/script.js"></script>
-</body>
-</html>
+    <%- include("./partials/footer") %>
