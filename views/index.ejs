@@ -3,7 +3,6 @@
 <div class="ui container">
     <% for(let i=0;i<21;i++){ %>
     <div id="n<%= i %>" class="part">
-        <p>N<%= i %> </p>
         <%- include(`./partials/N${i}`) %>
     </div>
     <% } %>
