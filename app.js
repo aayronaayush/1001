@@ -48,7 +48,7 @@ app.get("/part/:id", (req, res) => {
   // res.redirect("/")
   Story.findById(req.params.id)
     .then((foundStory) => {
-      console.log(foundStory);
+      //   console.log(foundStory);
       //send the links to next stories
       let nextPartLinks = {};
       let display = {};
@@ -82,8 +82,8 @@ app.get("/part/:id", (req, res) => {
             else {
               nextPartLinks.next1 = nextStory[0]._id;
               display.disp1 = foundStory.display1;
-              console.log(nextPartLinks.next1);
-              console.log(nextStory);
+              //   console.log(nextPartLinks.next1);
+              //   console.log(nextStory);
               res.render("show", {
                 part: foundStory,
                 nextPartLinks: nextPartLinks,
@@ -114,7 +114,7 @@ app.get("/part/:id", (req, res) => {
                   else {
                     nextPartLinks.next2 = nextStory2[0]._id;
                     display.disp2 = foundStory.display2;
-                    console.log(nextPartLinks.next2);
+                    // console.log(nextPartLinks.next2);
                     res.render("show", {
                       part: foundStory,
                       nextPartLinks: nextPartLinks,
