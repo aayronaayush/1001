@@ -1,10 +1,11 @@
-<%- include("./partials/header") %> 
-    <h1 style="text-align: center;">First Dervishes Story</h1>
-    <div class="ui container">
-        <% for(let i=0;i<21;i++){ %> 
-            <div id="n<%= i %>" class="part">
-                <%- include(`./partials/N${i}`) %> 
-            </div>
-        <% } %> 
+<%- include("./partials/header") %>
+<h1 style="text-align: center;">First Dervishes Story</h1>
+<div class="ui container">
+    <% for(let i=0;i<21;i++){ %>
+    <div id="n<%= i %>" class="part">
+        <p>N<%= i %> </p>
+        <%- include(`./partials/N${i}`) %>
     </div>
-    <%- include("./partials/footer") %>
+    <% } %>
+</div>
+<%- include("./partials/footer") %>

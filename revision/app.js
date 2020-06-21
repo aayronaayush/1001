@@ -1,9 +1,19 @@
 require("dotenv").config();
 let express = require("express");
-let app = express();
 let mongoose = require("mongoose");
+let bodyParser = require("body-parser");
+const {
+  render
+} = require("ejs");
+const e = require("express");
 
-app.set("view engine", "ejs");
+//app setup
+let app = express();
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 app.use(express.static(__dirname + "/public"));
 
 //database setup
@@ -12,8 +22,7 @@ app.use(express.static(__dirname + "/public"));
 //     useUnifiedTopology: true,
 // });
 mongoose.connect(
-  `mongodb+srv://aayushdeo:${process.env.DBPASSWORD}@cluster0-ain31.gcp.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`,
-  {
+  `mongodb+srv://aayushdeo:${process.env.DBPASSWORD}@cluster0-ain31.gcp.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }
@@ -29,14 +38,8 @@ let storySchema = new mongoose.Schema({
 });
 let Story = new mongoose.model("story", storySchema);
 
-app.get("/", (req, res) => {
-  res.render("home");
-});
-
-app.get("/story", (req, res) => {
-  res.render("index");
-  console.log("Home page served");
-});
+//routes
+app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
   res.render("home");
@@ -54,8 +57,7 @@ app.get("/part/:id", (req, res) => {
       let display = {};
       //for when we need to proceed
       if (foundStory.parts == null) {
-        Story.find(
-          {
+        Story.find({
             thisNode: "n30",
           },
           async (err, nextStory) => {
@@ -73,8 +75,7 @@ app.get("/part/:id", (req, res) => {
           }
         );
       } else if (foundStory.parts == 1) {
-        Story.find(
-          {
+        Story.find({
             thisNode: foundStory.nextNode1,
           },
           async (err, nextStory) => {
@@ -94,8 +95,7 @@ app.get("/part/:id", (req, res) => {
           }
         );
       } else if (foundStory.parts == 2) {
-        Story.find(
-          {
+        Story.find({
             //find the first story
             thisNode: foundStory.nextNode1,
           },
@@ -104,8 +104,7 @@ app.get("/part/:id", (req, res) => {
             else {
               nextPartLinks.next1 = nextStory1[0]._id;
               display.disp1 = foundStory.display1;
-              Story.find(
-                {
+              Story.find({
                   //find the second story
                   thisNode: foundStory.nextNode2,
                 },
@@ -164,8 +163,4 @@ app.get("/part/:id", (req, res) => {
   //   res.redirect("/new");
 }); */
 
-let port = process.env.PORT || 3000;
-
-app.listen(port, () => {
-  console.log(`Server started`);
-});
+app.listen(3000);

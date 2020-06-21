@@ -1,0 +1,19 @@
+<%- include("./partials/header")  %>
+<div id="vertSpace" class="ui container">
+    <p><%= part.story %> </p>
+    <div class="ui two column centered grid">
+        <% if(parts == 2){  %>
+        <a href="/part/<%= nextPartLinks.next1 %> ">
+            <button class="ui blue button large"><%= display.disp1 %> </button>
+        </a>
+        <a href="/part/<%= nextPartLinks.next2 %> ">
+            <button class="ui blue button large"><%= display.disp2 %></button>
+        </a>
+        <% } else if(parts==1) { %>
+        <a href="/part/<%= nextPartLinks.next1 %> ">
+            <button class="ui blue button large"><%= display.disp1 %></button>
+        </a>
+        <% } %>
+    </div>
+</div>
+<%- include("./partials/footer")  %>

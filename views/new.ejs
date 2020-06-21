@@ -1,0 +1,44 @@
+<%- include("./partials/header")  %>
+<div class="ui container">
+    <form class="ui form" action="/story" method="post">
+        <div class="field">
+            <label for="thisnode">This node</label>
+            <input type="text" name="thisnode" />
+        </div>
+        <div class="field">
+            <label for="story">Story</label><br />
+            <textarea name="story" id="story" cols="30" rows="10"></textarea>
+        </div>
+
+        <div class="field">
+            <label for="parts">Next Parts</label>
+            <input type="number" name="part" id="" />
+        </div>
+
+        <div class="field">
+            <label for="next1">Next1</label>
+            <input type="text" name="next1" />
+        </div>
+
+        <div class="field">
+            <label for="display1">Display1</label>
+            <input type="text" name="display1" id="" />
+        </div>
+
+        <div class="field">
+            <label for="next2">Next2</label>
+            <input type="text" name="next2" />
+        </div>
+
+        <div class="field">
+            <label for="display2">Display2</label>
+            <input type="text" name="display2" id="" />
+        </div>
+
+        <div>
+            <input class="ui green button" type="submit" value="Submit" />
+        </div>
+    </form>
+
+</div>
+<%- include("./partials/footer")  %>
